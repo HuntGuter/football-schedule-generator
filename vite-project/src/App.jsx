@@ -1,12 +1,14 @@
 import { teams } from './data/teams';
 import { generateBaseSchedule } from './engine/generateBaseEngine';
 import { generateSecondRound } from './engine/generateSecondRound';
+import { randomizefirstRound } from './engine/randomizeMatches';
 
 function App() {
   const firstRound = generateBaseSchedule(teams);
-  const secondRound = generateSecondRound(firstRound);
+  const randomizedFirstRound = randomizefirstRound(firstRound);
+  const secondRound = generateSecondRound(randomizedFirstRound);
 
-  const fullSchedule = [...firstRound, ...secondRound];
+  const fullSchedule = [...randomizedFirstRound, ...secondRound];
   console.log('Generated Schedule:', fullSchedule);
 
   return (

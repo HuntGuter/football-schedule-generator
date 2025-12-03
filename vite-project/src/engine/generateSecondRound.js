@@ -1,3 +1,5 @@
+import {shuffleArray} from './shuffleArray.js';
+
 export function generateSecondRound (firstRound) {
     const secondRound = JSON.parse(JSON.stringify(firstRound));
 
@@ -22,18 +24,4 @@ export function generateSecondRound (firstRound) {
     return shuffledWeeks;
 }
 
-// Fisher-Yates algorithm
 
-function shuffleArray(array) {
-    const arr = [...array];
-
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-
-        const temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-    return arr;
-}
