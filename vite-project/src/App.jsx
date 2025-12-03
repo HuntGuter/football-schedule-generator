@@ -1,9 +1,13 @@
 import { teams } from './data/teams';
 import { generateBaseSchedule } from './engine/generateBaseEngine';
+import { generateSecondRound } from './engine/generateSecondRound';
 
 function App() {
-  const schedule = generateBaseSchedule(teams);
-  console.log('Generated Schedule:', schedule);
+  const firstRound = generateBaseSchedule(teams);
+  const secondRound = generateSecondRound(firstRound);
+
+  const fullSchedule = [...firstRound, ...secondRound];
+  console.log('Generated Schedule:', fullSchedule);
 
   return (
     <div>
