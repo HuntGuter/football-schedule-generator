@@ -1,12 +1,13 @@
 import { teams } from './data/teams';
+import { generateBaseSchedule } from './engine/generateBaseEngine';
 
 function App() {
-  console.log(teams);
+  const schedule = generateBaseSchedule(teams);
+  console.log('Generated Schedule:', schedule);
 
   return (
     <div>
       <h1>Football Schedule Generator</h1>
-      <p>Open console to see logs</p>
     </div>
   );
 }
